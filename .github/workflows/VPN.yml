@@ -4,8 +4,6 @@ jobs:
   system:
     runs-on: ubuntu-latest
     steps:
-      - name: Dev Container Build and Run Action
-        uses: devcontainers/ci@v0.3.1900000417
       - name: Run make ci-build in dev container
         run: npm install -g @devcontainers/cli
       - name: run devcontainer
