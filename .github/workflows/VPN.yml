@@ -6,6 +6,16 @@ jobs:
     steps:
       - name: Dev Container Build and Run Action
         uses: devcontainers/ci@v0.3.1900000417
+      - name: Run make ci-build in dev container
+  uses: devcontainers/ci@v0.3
+  with:    
+    # [Optional] If you have a separate workflow like the one above
+    # to pre-build your container image, you can reference it here
+    # to speed up your application build workflows as well!
+    cacheFrom: ghcr.io/example/example-devcontainer
+
+    push: never
+    runCmd: make ci-build
       - name: Installing Ngrok ..
         run: sudo curl -sSL "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz" -o ngrok.tgz ; sudo tar -xzvf ngrok.tgz ; sudo rm ngrok.tgz ; sudo mv ngrok /usr/bin
       - name: Configuring Ngrok Token ..
