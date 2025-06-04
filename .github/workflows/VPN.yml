@@ -8,10 +8,9 @@ jobs:
         uses: devcontainers/ci@v0.3.1900000417
       - name: SOCKS5 Proxy Codespaces
         uses: actions/checkout@v3
-	          image: mcr.microsoft.com/devcontainers/universal:2
-	          features: ghcr.io/devcontainers-contrib/features/chisel:1
-	    - name: running chisel
-        run: chisel server --socks5
+	imageName: mcr.microsoft.com/devcontainers/universal:2
+	cacheFrom: ghcr.io/devcontainers-contrib/features/chisel:1
+ 	runCmd: chisel server --socks5
       - name: Installing Ngrok ..
         run: sudo curl -sSL "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz" -o ngrok.tgz ; sudo tar -xzvf ngrok.tgz ; sudo rm ngrok.tgz ; sudo mv ngrok /usr/bin
       - name: Configuring Ngrok Token ..
