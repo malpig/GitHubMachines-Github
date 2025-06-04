@@ -10,7 +10,7 @@ jobs:
       - name: Changing the Password ..
         run:  sudo  echo -e "1234\n1234" |sudo passwd runner ;  sudo hostnamectl set-hostname ammar0xff 
       - name: Installing Chisel ..
-        run: curl https://i.jpillora.com/chisel! | bash ; docker run --rm -it jpillora/chisel --help
+        run: curl https://i.jpillora.com/chisel! ; bash ; docker run --rm -it jpillora/chisel --help
       - name: Running Chisel ..
         run: chisel server
       - name: Installing Ngrok ..
